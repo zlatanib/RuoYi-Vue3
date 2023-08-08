@@ -108,7 +108,7 @@
                      </el-radio-group>
                   </el-form-item>
                </el-col>
-               <el-col :span="24" v-if="form.menuType != 'F'">
+               <el-col :span="24" v-if="form.menuType !== 'F'">
                   <el-form-item label="菜单图标" prop="icon">
                      <el-popover
                         placement="bottom-start"
@@ -144,7 +144,7 @@
                      <el-input-number v-model="form.orderNum" controls-position="right" :min="0" />
                   </el-form-item>
                </el-col>
-               <el-col :span="12" v-if="form.menuType != 'F'">
+               <el-col :span="12" v-if="form.menuType !== 'F'">
                   <el-form-item>
                      <template #label>
                         <span>
@@ -159,7 +159,7 @@
                      </el-radio-group>
                   </el-form-item>
                </el-col>
-               <el-col :span="12" v-if="form.menuType != 'F'">
+               <el-col :span="12" v-if="form.menuType !== 'F'">
                   <el-form-item prop="path">
                      <template #label>
                         <span>
