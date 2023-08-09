@@ -104,7 +104,7 @@
 
     <el-table v-loading="loading" :data="classList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="班级自增ID" align="center" prop="classId" />
+<!--      <el-table-column label="班级自增ID" align="center" prop="classId" />-->
       <el-table-column label="班级编号" align="center" prop="classNo" />
       <el-table-column label="班级名称" align="center" prop="className" />
       <el-table-column label="部分" align="center" prop="part">
