@@ -102,4 +102,7 @@ function handleCurrentChange(val) {
 .pagination-container.hidden {
   display: none;
 }
+.el-pagination {
+  margin-right: 20px;
+}
 </style>
