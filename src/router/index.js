@@ -171,6 +171,20 @@ export const dynamicRoutes = [
         meta: { title: '分配教师', activeMenu: '/score/class' }
       }
     ]
+  },
+  {
+    path: '/score/teach-subject',
+    component: Layout,
+    hidden: true,
+    permissions: ['score:teacher:edit'],
+    children: [
+      {
+        path: 'subject/:teacherId(\\d+)',
+        component: () => import('@/views/score/teacher/teachSubject'),
+        name: 'TeachSubject',
+        meta: { title: '教授科目', activeMenu: '/score/teacher' }
+      }
+    ]
   }
 ]
 

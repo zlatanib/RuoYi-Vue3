@@ -42,3 +42,12 @@ export function delTeacher(teacherId) {
     method: 'delete'
   })
 }
+
+// 查询教师已分配学科列表
+export function allocatedSubjectList(query) {
+  return request({
+    url: '/score/teacher/teachSubject/allocatedList',
+    method: 'get',
+    params: query
+  })
+}
