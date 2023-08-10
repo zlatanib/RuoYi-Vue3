@@ -130,8 +130,15 @@
       <el-table-column label="备注" align="center" prop="remark" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template #default="scope">
-          <el-button link type="primary" icon="Edit" @click="handleUpdate(scope.row)" v-hasPermi="['score:class:edit']">修改</el-button>
-          <el-button link type="primary" icon="Delete" @click="handleDelete(scope.row)" v-hasPermi="['score:class:remove']">删除</el-button>
+          <el-tooltip content="修改" placement="top">
+            <el-button link type="primary" icon="Edit" @click="handleUpdate(scope.row)" v-hasPermi="['score:class:edit']"></el-button>
+          </el-tooltip>
+          <el-tooltip content="删除" placement="top">
+            <el-button link type="primary" icon="Delete" @click="handleDelete(scope.row)" v-hasPermi="['score:class:remove']"></el-button>
+          </el-tooltip>
+          <el-tooltip content="分配教师" placement="top">
+            <el-button link type="primary" icon="User" @click="handleClassTeacher(scope.row)" v-hasPermi="['score:class:edit']"></el-button>
+          </el-tooltip>
         </template>
       </el-table-column>
     </el-table>
@@ -210,6 +217,7 @@
 import { listClass, getClass, delClass, addClass, updateClass } from "@/api/score/class";
 
 const { proxy } = getCurrentInstance();
+const router = useRouter();
 const { sco_class_level, sys_common_enable, sco_class_part, sco_class_nature } = proxy.useDict('sco_class_level', 'sys_common_enable', 'sco_class_part', 'sco_class_nature');
 
 const classList = ref([]);
@@ -367,6 +375,10 @@ function handleDelete(row) {
     getList();
     proxy.$modal.msgSuccess("删除成功");
   }).catch(() => {});
+}
+
+function handleClassTeacher(row) {
+  router.push("/score/class-teacher/teacher/" + row.classId);
 }
 
 /** 导出按钮操作 */

@@ -157,6 +157,20 @@ export const dynamicRoutes = [
         meta: { title: '修改生成配置', activeMenu: '/tool/gen' }
       }
     ]
+  },
+  {
+    path: '/score/class-teacher',
+    component: Layout,
+    hidden: true,
+    permissions: ['score:class:edit'],
+    children: [
+      {
+        path: 'teacher/:classId(\\d+)',
+        component: () => import('@/views/score/class/classTeacher'),
+        name: 'ClassTeacher',
+        meta: { title: '分配教师', activeMenu: '/score/class' }
+      }
+    ]
   }
 ]
 
